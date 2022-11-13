@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package user;
+option go_package="gRPC-Go-Study/user/api";
+
+service IUserService {
+  rpc Register (UserRegisterRequest) returns (UserRegisterResponse);
+}
+
+message UserRegisterRequest {
+  string email = 1;
+  string username = 2;
+  optional string address = 3;
+  int32 age = 4;
+}
+
+message UserRegisterResponse {
+  string data = 1;
+  int32 code = 2;
+  string message = 3;
+}
